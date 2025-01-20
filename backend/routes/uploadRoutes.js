@@ -1,5 +1,5 @@
 import express from "express";
-import { upload } from "../middleware/uploadMiddleware.js";
+import upload from "../middleware/uploadMiddleware.js";
 import Author from "../models/authorModel.js";
 import BlogPost from "../models/blogPostModel.js";
 

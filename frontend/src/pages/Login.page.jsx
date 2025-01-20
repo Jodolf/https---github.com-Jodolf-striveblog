@@ -1,36 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      navigate("/"); // Se l'utente è già autenticato, reindirizza alla homepage
+    }
+  }, [navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+  
     try {
       const response = await fetch("http://localhost:3001/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password }), // Solo email e password
       });
-
+  
       if (response.ok) {
         const { token } = await response.json();
-        localStorage.setItem("authToken", token);
-        window.location.href = "/";
+        localStorage.setItem("authToken", token); // Salva il token
+        window.location.href = "/"; // Reindirizza alla homepage
       } else {
-        alert("Login failed");
+        alert("Login failed. Please check your credentials.");
       }
     } catch (error) {
       console.error("Error during login:", error);
+      alert("An error occurred during login.");
     }
   };
-
+  
   return (
-    <form onSubmit={handleLogin}>
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-      <button type="submit">Login</button>
-    </form>
+    <div>
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <input name="email" type="email" placeholder="Email" required />
+        <input name="password" type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p>
+        Don't have an account? <Link to="/register">Register here</Link>
+      </p>
+    </div>
   );
 }
 
