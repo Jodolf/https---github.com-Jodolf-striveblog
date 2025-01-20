@@ -1,0 +1,68 @@
+.container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #f8f9fa; /* Colore di sfondo chiaro */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Titolo */
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #343a40;
+  }
+  
+  /* Form */
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Campi di input */
+  .form-control {
+    font-size: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+  
+  .form-control:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #007bff;
+  }
+  
+  /* Etichette */
+  .form-label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #495057;
+  }
+  
+  /* Bottone */
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Righe e colonne */
+  .row {
+    margin-bottom: 2rem;
+  }
+  

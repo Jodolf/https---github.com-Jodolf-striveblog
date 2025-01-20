@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa; /* Bootstrap bg-light */
+    color: #212529; /* Bootstrap text-dark */
+  }
+  
+  /* Layout */
+  .container {
+    margin-top: 2rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+  }
+  
